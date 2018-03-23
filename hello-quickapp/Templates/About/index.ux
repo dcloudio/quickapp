@@ -1,0 +1,64 @@
+<template>
+    <div class="container">
+        <list class="mine-list">
+            <list-item type="mine" for="{{list}}" class="mine-item-list line">
+                <text>{{$item}}</text>
+                <image src="/Common/img/arrow_right.png"></image>
+            </list-item>
+        </list>
+    </div>
+</template>
+<style>
+    @import '../../Common/css/common.css';
+    .container {
+        background-color: #EFEFF4;
+    }
+
+    .line {
+        border-bottom-width: 1px;
+        border-bottom-color: #C8C8CB;
+    }
+
+    .mine-list {
+        height: 450px;
+        width: 750px;
+        background-color: #ffffff;
+        margin-top: 25px;
+        border-color: #C8C8CB;
+        border-bottom-width: 1px;
+        border-top-width: 1px;
+    }
+
+    .mine-item-list {
+        width: 720px;
+        height: 90px;
+        margin-left: 30px;
+        flex-direction: row;
+    }
+
+    .mine-item-list text {
+        width: 200px;
+        height: 90px;
+        text-align: left;
+    }
+
+    .mine-item-list image {
+        width: 16px;
+        height: 30px;
+        margin-left: 479px;
+        margin-top: 30px;
+    }
+</style>
+<script>
+    import prompt from '@system.prompt'
+    module.exports = {
+        data: {
+            list: ['评分鼓励', '分享推荐', '客服电话', '问题反馈', '检查更新']
+        },
+        onInit: function (e) {
+            this.$page.setTitleBar({
+                text: '关于'
+            })
+        }
+    }
+</script>

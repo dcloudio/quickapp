@@ -1,0 +1,57 @@
+<template>
+    <div class="container">
+        <div class="item-title">
+            <text>fetch</text>
+        </div>
+        <div class="item-content">
+            <div class="item-group">
+                <text class="item-group-text" for="infos">{{$item}}</text>
+                <input type="button" name="fetch" class="item-group-button" value="刷新" onclick="fetch('refresh')" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<style>
+    @import '../../Common/css/common.css';
+</style>
+
+<script>
+    import fetch from "@system.fetch";
+    import prompt from "@system.prompt";
+    module.exports = {
+        data: {
+            infos: []
+        },
+        onInit: function (e) {
+            this.$page.setTitleBar({
+                text: 'Fetch'
+            });
+            this.fetch();
+        },
+        fetch: function (p) {
+            var that = this;
+            fetch.fetch({
+                url: 'http://www.dcloud.io/docs/HBuilder.json?timestamp=',
+                success: function (data) {
+                    if (data.code == 200) {
+                        var infos = [];
+                        var rs = JSON.parse(data.data);
+                        infos.push('HBuilderX版本号：' + rs.win[1].version);
+                        infos.push('HBuilderX名称：' + rs.win[1].name);
+                        infos.push('HBuilderX大小：' + rs.win[1].size);
+                        that.infos = infos;
+                        if (p) {
+                            prompt.showToast({
+                                message: '刷新成功'
+                            })
+                        }
+                    }
+                },
+                fail: function (data, code) {
+                    console.log('...fail...');
+                }
+            })
+        }
+    }
+</script>

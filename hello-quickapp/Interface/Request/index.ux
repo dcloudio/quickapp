@@ -1,0 +1,53 @@
+<template>
+    <div class="container">
+        <div class="item-title">
+            <text>request</text>
+        </div>
+        <div class="item-content">
+            <div class="item-group">
+                <text class="item-group-text">下载文件：{{uri}}</text>
+                <input type="button" name="fetch" class="item-group-button" value="下载" onclick="downloadFile" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<style>
+    @import '../../Common/css/common.css';
+</style>
+
+<script>
+    import request from "@system.request";
+    import prompt from "@system.prompt";
+    module.exports = {
+        data: {
+            uri: ''
+        },
+        onInit: function (e) {
+            this.$page.setTitleBar({
+                text: 'Request'
+            })
+        },
+        downloadFile: function () {
+            var that = this;
+            request.download({
+                url: 'http://img-cdn-qiniu.dcloud.net.cn/icon3.png',
+                success: function (data) {
+                    request.onDownloadComplete({
+                        token: data.token,
+                        success: function (data) {
+                            that.uri = data.uri
+                        },
+                        fail: function (data, code) {
+                            console.log('...fail...');
+                        }
+                    })
+                },
+                fail: function (code, data) {
+                    console.log('...fail...');
+                }
+            });
+
+        }
+    }
+</script>

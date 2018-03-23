@@ -1,0 +1,75 @@
+<template>
+    <div class="container">
+        <div class="item-title">
+            <text>prompt</text>
+        </div>
+        <div class="item-content">
+            <input type="button" class="item-group-button" name="toast" value="toast" onclick="showToast" />
+            <input type="button" class="item-group-button" name="dialog" value="dialog" onclick="showDialog" />
+            <input type="button" class="item-group-button" name="contextMenu" value="contextMenu" onclick="contextMenu" />
+        </div>
+    </div>
+</template>
+
+<style>
+    @import '../../Common/css/common.css';
+</style>
+
+<script>
+    import prompt from "@system.prompt";
+    module.exports = {
+        onInit: function (e) {
+            this.$page.setTitleBar({
+                text: 'Prompt'
+            })
+        },
+        showToast: function () {
+            prompt.showToast({
+                message: '今天天气不错'
+            })
+        },
+        showDialog: function () {
+            prompt.showDialog({
+                title: '提示',
+                message: '是否要关闭？',
+                buttons: [{
+                        text: '确定',
+                        color: '#0FAEFF'
+                    },
+                    {
+                        text: '取消',
+                        color: '#0FAEFF'
+                    }
+                ],
+                success: function (data) {
+                    if (data.index == 0) {
+                        prompt.showToast({
+                            message: '确定'
+                        })
+                    } else if (data.index == 1) {
+                        prompt.showToast({
+                            message: '取消'
+                        })
+                    }
+                },
+                fail: function (data, code) {
+                    console.log('...fail...')
+                }
+            })
+        },
+        contextMenu: function () {
+            prompt.showContextMenu({
+                itemList: ['item1', 'item2', 'item3', 'item4', 'item5'],
+                itemColor: '#0FAEFF',
+                success: function (data) {
+                    prompt.showToast({
+                        message: 'item' + (data.index + 1)
+                    })
+                },
+                fail: function (data, code) {
+                    console.log('...fail...')
+                }
+            })
+        }
+    }
+</script>
