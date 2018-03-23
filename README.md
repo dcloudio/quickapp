@@ -25,8 +25,11 @@ HBuiderX下载地址：[http://quickapp.dcloud.io](http://quickapp.dcloud.io)
 ### hello-quickapp
 
 hello-quickapp是DCloud发布的快应用Demo示例，提供快应用接口能力及组件进行展示。
-开发者下载Hello QuickApp项目源码后，拖拽到[HBuidlerX](http://quickapp.dcloud.io)中，就可以在手机上真机运行及调试；
-开发者也可以将hello-quickapp编译后的rpk文件，安装到快应用联盟的加载器中。
+
+开发者可以通过如下两种方式体验hello-quickapp：
+
+- 下载Hello QuickApp项目源码，拖拽到[HBuidlerX](http://quickapp.dcloud.io)中，通过数据线将Android手机连接到电脑，在手机上进行真机运行及调试；
+- 将hello-quickapp编译后的rpk文件，安装到快应用联盟的加载器中直接运行
 
 
 更多源码示例，敬请期待。
