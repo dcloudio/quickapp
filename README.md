@@ -26,7 +26,7 @@ HBuiderX下载地址：[http://quickapp.dcloud.io](http://quickapp.dcloud.io)
 
 hello-quickapp是DCloud发布的快应用Demo示例，提供快应用接口能力及组件进行展示。
 
-![](http://img.cdn.aliyun.dcloud.net.cn/quickapp/guide/hello-quickapp-04.jpg)
+<img src="http://img.cdn.aliyun.dcloud.net.cn/quickapp/guide/hello-quickapp-04.jpg" width="480px">
 
 开发者可以通过如下两种方式体验hello-quickapp：
 
