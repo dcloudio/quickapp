@@ -18,13 +18,15 @@ HBuiderX下载地址：[http://quickapp.dcloud.io](http://quickapp.dcloud.io)
 ## 转换器
 
 如果你已经有了一款微信小程序，那就没必要从头重新开发快应用，可以利用DCloud提供的转换器，快速将微信小程序转换为快应用。
-转换器源码即将开源，敬请期待！
+转换器源码已开源，地址：[https://github.com/dcloudio/uni-migration](https://github.com/dcloudio/uni-migration)，欢迎大家一起参与完善小程序转换器，拒绝重复劳动，提高开发效率。
 
 ## 源码示例
 
 ### hello-quickapp
 
 hello-quickapp是DCloud发布的快应用Demo示例，提供快应用接口能力及组件进行展示。
+
+![](http://img.cdn.aliyun.dcloud.net.cn/quickapp/guide/hello-quickapp-04.jpg)
 
 开发者可以通过如下两种方式体验hello-quickapp：
 
